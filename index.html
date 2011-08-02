@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>raphael.chord.js Demo</title>
+<script type="text/javascript" src="raphael.js"></script>
+<script type="text/javascript" src="raphael.chord.js"></script>
+<script type="text/javascript">
+  window.onload = function() {
+    var chordE = Raphael.chord(10, 10, [0, 2, 2, 1, 0, 0], 'E');
+    var chordA = Raphael.chord(110, 10, [-1, 0, 2, 2, 2, 0], 'A');
+    var chordD = Raphael.chord(210, 10, [-1, -1, 0, 2, 3, 2], 'D');
+    var chordG = Raphael.chord(310, 10, [3, 2, 0, 0, 0, 3], 'G');
+    var chordC = Raphael.chord(410, 10, [-1, 3, 2, 0, 1, 0], 'C');
+    var chordF = Raphael.chord(510, 10, [1, 3, 3, 2, 1, 1], 'F');
+    var chordB = Raphael.chord(610, 10, [0, 2, 4, 4, 4, 2], 'B');
+    var chordEmaj = Raphael.chord(10, 110, [-1, 7, 6, 4, 5, 4], 'Emaj');
+    var chordA5 = Raphael.chord(110, 110, [5, 7, 7, -1, -1, -1], 'A5');
+    var chordB5 = Raphael.chord(210, 110, [7, 9, 9, -1, -1, -1], 'B5');
+    var chordDb5 = Raphael.chord(310, 110, [9, 11, 11, -1, -1, -1], 'Db5');
+    var chordD5 = Raphael.chord(410, 110, [-1, 5, 7, 7, -1, -1], 'D5');
+    var chordE5 = Raphael.chord(510, 110, [-1, 7, 9, 9, -1, -1], 'E5');
+    var chordGb5 = Raphael.chord(610, 110, [-1, 9, 11, 11, -1, -1], 'Gb5');
+  };
+</script>
+</head>
+<body>
+  <div>
+  </div>
+</body>
+</html>
