@@ -4,18 +4,11 @@
  * Copyright (c) 2011 Justin D'Arcangelo (http://twitter.com/justindarc)
  * Licensed under the MIT (http://www.opensource.org/licenses/mit-license.php) license.
  */
- 
- /*
-  * Usage:
-  *   var chord = Raphael.chord([data]);
-  *   // [data] is an array with 6 fret values (-1 = Muted, 0 = Open, >=1 = Fret)
-  *
-  *   chord.remove(); // Removes chord
-  */
+
 (function(Raphael) {
   
-  Raphael.chord = function(x, y, data, labelOrVariant) {
-    return new Chord(x, y, data, labelOrVariant);
+  Raphael.chord = function(elementOrPosition, data, labelOrVariant) {
+    return new Chord(elementOrPosition, data, labelOrVariant);
   };
   
   Raphael.chord.find = function(root, name, variation) {
@@ -2631,8 +2624,16 @@
     }]
   }];
   
-  var Chord = function(x, y, data, labelOrVariant) {
-    this.element = Raphael(x, y, 100, 100);
+  var Chord = function(elementOrPosition, data, labelOrVariant) {
+    
+    if (typeof(elementOrPosition) === 'object' && elementOrPosition.x !== undefined && elementOrPosition.y !== undefined) {
+      this.element = Raphael(elementOrPosition.x, elementOrPosition.y, 100, 100);
+    }
+    
+    else {
+      this.element = Raphael(elementOrPosition, 100, 100);
+    }
+    
     this.fret = 0;
     this.frets = [];
     this.lines = {};
@@ -2697,10 +2698,12 @@
         variant = labelOrVariant;
       }
       
+      this.element.remove();
+      
       if (splitData.length > 1) {
-        return new Chord(x, y, Raphael.chord.find(splitData[0], splitData[1], variant), splitData[0] + ' ' + splitData[1]);
+        return new Chord(elementOrPosition, Raphael.chord.find(splitData[0], splitData[1], variant), splitData[0] + ' ' + splitData[1]);
       } else {
-        return new Chord(x, y, Raphael.chord.find(data, 'maj', variant), data);
+        return new Chord(elementOrPosition, Raphael.chord.find(data, 'maj', variant), data);
       }
     }
     

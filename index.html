@@ -3,93 +3,339 @@
 <head>
 <meta charset="utf-8"/>
 <title>raphael.chord.js Demo</title>
+<style type="text/css">
+  body {
+    background-color: #778;
+    font-family: Helvetica, Arial, FreeSans, san-serif;
+    color: #eee;
+  }
+  a {
+    color: #dde;
+  }
+  a:hover {
+    color: #fff;
+  }
+  h1 {
+    font-size: 3.4em;
+    margin-bottom: 20px;
+    text-shadow: 0px -1px 0px #000;
+  }
+  h2 {
+    font-size: 1.5em;
+    font-weight: normal;
+    margin: 0px;
+    text-shadow: 0px -1px 0px #000;
+  }
+  h2 a {
+    text-decoration: none;
+  }
+  pre {
+    background: #000;
+    color: #0b4;
+    padding: 20px 20px 5px;
+    -webkit-box-shadow: 0px 2px 10px 0px #000;
+    -moz-box-shadow: 0px 2px 10px 0px #000;
+    box-shadow: 0px 2px 10px 0px #000;
+    -moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+    -o-border-radius: 9px;
+    -ms-border-radius: 9px;
+    -khtml-border-radius: 9px;
+    border-radius: 9px;
+  }
+  .bullet {
+    padding: 20px;
+  }
+  .bullet:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .bullet h2 {
+    font-size: 1.2em;
+  }
+  .description {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-style: italic;
+  }
+  .download > a {
+    text-decoration: none;
+    float: right;
+  }
+  .footer {
+    padding-top: 30px;
+    font-style: italic;
+  }
+  .subtext {
+    font-size: 0.9em;
+    font-style: italic;
+  }
+  #container {
+    margin: 0 auto;
+    width: 780px;
+  }
+  #div1, #div2, #div3, #div4, #div5, #div6, #div7, #div8, #div9, #div10 {
+    background-color: #fff;
+    padding: 20px 20px 5px;
+    -webkit-box-shadow: 0px 2px 10px 0px #000;
+    -moz-box-shadow: 0px 2px 10px 0px #000;
+    box-shadow: 0px 2px 10px 0px #000;
+    -moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+    -o-border-radius: 9px;
+    -ms-border-radius: 9px;
+    -khtml-border-radius: 9px;
+    border-radius: 9px;
+  }
+</style>
 <script type="text/javascript" src="raphael.js"></script>
 <script type="text/javascript" src="raphael.chord.js"></script>
 <script type="text/javascript">
   window.onload = function() {
     
-    // Manually specifying individual notes with manual labelling.
-    Raphael.chord( 10,  10, [-1,  3,  2,  0,  1,  0], 'C maj');
-    Raphael.chord(110,  10, [-1, -1,  0,  2,  3,  2], 'D maj');
-    Raphael.chord(210,  10, [ 0,  2,  2,  1,  0,  0], 'E maj');
-    Raphael.chord(310,  10, [ 1,  3,  3,  2,  1,  1], 'F maj');
-    Raphael.chord(410,  10, [ 3,  2,  0,  0,  0,  3], 'G maj');
-    Raphael.chord(510,  10, [-1,  0,  2,  2,  2,  0], 'A maj');
-    Raphael.chord(610,  10, [-1,  2,  4,  4,  4,  2], 'B maj');
+    // Manually specifying individual notes with manual labels.
+    Raphael.chord('div1', [-1,  2,  4,  4,  4,  2], 'B maj');
+    Raphael.chord('div1', [-1,  0,  2,  2,  2,  0], 'A maj');
+    Raphael.chord('div1', [ 3,  2,  0,  0,  0,  3], 'G maj');
+    Raphael.chord('div1', [ 1,  3,  3,  2,  1,  1], 'F maj');
+    Raphael.chord('div1', [ 0,  2,  2,  1,  0,  0], 'E maj');
+    Raphael.chord('div1', [-1, -1,  0,  2,  3,  2], 'D maj');
+    Raphael.chord('div1', [-1,  3,  2,  0,  1,  0], 'C maj');
     
-    // Manually finding chords with manual labelling.
-    Raphael.chord( 10, 110, Raphael.chord.find('C#', 'maj'), 'C# maj');
-    Raphael.chord(110, 110, Raphael.chord.find('D#', 'maj'), 'D# maj');
-    Raphael.chord(210, 110, Raphael.chord.find('F#', 'maj'), 'F# maj');
-    Raphael.chord(310, 110, Raphael.chord.find('G#', 'maj'), 'G# maj'); // G# == Ab
-    Raphael.chord(410, 110, Raphael.chord.find('Ab', 'maj'), 'Ab maj'); // Ab == G#
-    Raphael.chord(510, 110, Raphael.chord.find('A#', 'maj'), 'A# maj'); // A# == Bb
-    Raphael.chord(610, 110, Raphael.chord.find('Bb', 'maj'), 'Bb maj'); // Bb == A#
+    // Manually finding chords with manual labels.
+    Raphael.chord('div2', Raphael.chord.find('A#', 'maj'), 'A# maj'); // A# == Bb
+    Raphael.chord('div2', Raphael.chord.find('Bb', 'maj'), 'Bb maj'); // Bb == A#
+    Raphael.chord('div2', Raphael.chord.find('G#', 'maj'), 'G# maj'); // G# == Ab
+    Raphael.chord('div2', Raphael.chord.find('Ab', 'maj'), 'Ab maj'); // Ab == G#
+    Raphael.chord('div2', Raphael.chord.find('F#', 'maj'), 'F# maj');
+    Raphael.chord('div2', Raphael.chord.find('D#', 'maj'), 'D# maj');
+    Raphael.chord('div2', Raphael.chord.find('C#', 'maj'), 'C# maj');
     
-    // Manually finding chords by variation with manual labelling.
-    Raphael.chord( 10, 210, Raphael.chord.find('C#', 'maj', 1), 'C# maj');
-    Raphael.chord(110, 210, Raphael.chord.find('C#', 'maj', 2), 'C# maj');
-    Raphael.chord(210, 210, Raphael.chord.find('C#', 'maj', 3), 'C# maj');
-    Raphael.chord(310, 210, Raphael.chord.find('C#', 'maj', 4), 'C# maj');
-    Raphael.chord(410, 210, Raphael.chord.find('C#', 'maj', 5), 'C# maj');
+    // Manually finding chords by variation with manual labels.
+    Raphael.chord('div3', Raphael.chord.find('C#', 'maj', 5), 'C# maj'); // 5th variant
+    Raphael.chord('div3', Raphael.chord.find('C#', 'maj', 4), 'C# maj'); // 4th variant
+    Raphael.chord('div3', Raphael.chord.find('C#', 'maj', 3), 'C# maj'); // 3rd variant
+    Raphael.chord('div3', Raphael.chord.find('C#', 'maj', 2), 'C# maj'); // 2nd variant
+    Raphael.chord('div3', Raphael.chord.find('C#', 'maj', 1), 'C# maj'); // 1st variant
     
-    // Automatically finding chords with automatic labelling.
-    Raphael.chord( 10, 310, 'C min');
-    Raphael.chord(110, 310, 'D min');
-    Raphael.chord(210, 310, 'E min');
-    Raphael.chord(310, 310, 'F min');
-    Raphael.chord(410, 310, 'G min');
-    Raphael.chord(510, 310, 'A min');
-    Raphael.chord(610, 310, 'B min');
-    Raphael.chord( 10, 410, 'C# min');
-    Raphael.chord(110, 410, 'D# min');
-    Raphael.chord(210, 410, 'F# min');
-    Raphael.chord(310, 410, 'G# min'); // G# == Ab
-    Raphael.chord(410, 410, 'Ab min'); // Ab == G#
-    Raphael.chord(510, 410, 'A# min'); // A# == Bb
-    Raphael.chord(610, 410, 'Bb min'); // Bb == A#
+    // Automatically finding chords with automatic labels.
+    Raphael.chord('div5', 'A# min'); // A# == Bb
+    Raphael.chord('div5', 'Bb min'); // Bb == A#
+    Raphael.chord('div5', 'G# min'); // G# == Ab
+    Raphael.chord('div5', 'Ab min'); // Ab == G#
+    Raphael.chord('div5', 'F# min');
+    Raphael.chord('div5', 'D# min');
+    Raphael.chord('div5', 'C# min');
+    Raphael.chord('div4', 'B min');
+    Raphael.chord('div4', 'A min');
+    Raphael.chord('div4', 'G min');
+    Raphael.chord('div4', 'F min');
+    Raphael.chord('div4', 'E min');
+    Raphael.chord('div4', 'D min');
+    Raphael.chord('div4', 'C min');
     
-    // Automatically finding chords by variation with automatic labelling.
-    Raphael.chord( 10, 510, 'A# min', 1);
-    Raphael.chord(110, 510, 'A# min', 2);
-    Raphael.chord(210, 510, 'A# min', 3);
-    Raphael.chord(310, 510, 'A# min', 4);
-    Raphael.chord(410, 510, 'A# min', 5);
-    Raphael.chord(510, 510, 'A# min', 6);
-    Raphael.chord(610, 510, 'A# min', 7);
+    // Automatically finding chords by variation with automatic labels.
+    Raphael.chord('div6', 'A# min', 7);
+    Raphael.chord('div6', 'A# min', 6);
+    Raphael.chord('div6', 'A# min', 5);
+    Raphael.chord('div6', 'A# min', 4);
+    Raphael.chord('div6', 'A# min', 3);
+    Raphael.chord('div6', 'A# min', 2);
+    Raphael.chord('div6', 'A# min', 1);
     
     // Examples of the other possible chord types.
-    Raphael.chord( 10, 610, 'C 5');
-    Raphael.chord(110, 610, 'D 6');
-    Raphael.chord(210, 610, 'E 7');
-    Raphael.chord(310, 610, 'F maj7');
-    Raphael.chord(410, 610, 'G 9');
-    Raphael.chord(510, 610, 'A maj9');
-    Raphael.chord(610, 610, 'B 11');
-    Raphael.chord( 10, 710, 'C# 13');
-    Raphael.chord(110, 710, 'D# maj13');
-    Raphael.chord(210, 710, 'F# min6');
-    Raphael.chord(310, 710, 'G# min7');
-    Raphael.chord(410, 710, 'A# min9');
-    Raphael.chord( 10, 810, 'C min11');
-    Raphael.chord(110, 810, 'D min13');
-    Raphael.chord(210, 810, 'E min(maj7)');
-    Raphael.chord(310, 810, 'F sus2');
-    Raphael.chord(410, 810, 'G sus4');
-    Raphael.chord(510, 810, 'A dim');
-    Raphael.chord(610, 810, 'B aug');
-    Raphael.chord( 10, 910, 'C# 6/9');
-    Raphael.chord(110, 910, 'D# 7sus4');
-    Raphael.chord(210, 910, 'F# 7b5');
-    Raphael.chord(310, 910, 'G# 7b9');
-    Raphael.chord(410, 910, 'A# 9sus4');
-    Raphael.chord(510, 910, 'C add9');
-    Raphael.chord(610, 910, 'D aug9');
+    Raphael.chord('div7', 'B 11');
+    Raphael.chord('div7', 'A maj9');
+    Raphael.chord('div7', 'G 9');
+    Raphael.chord('div7', 'F maj7');
+    Raphael.chord('div7', 'E 7');
+    Raphael.chord('div7', 'D 6');
+    Raphael.chord('div7', 'C 5');
+    Raphael.chord('div8', 'A# min9');
+    Raphael.chord('div8', 'G# min7');
+    Raphael.chord('div8', 'F# min6');
+    Raphael.chord('div8', 'D# maj13');
+    Raphael.chord('div8', 'C# 13');
+    Raphael.chord('div9', 'B aug');
+    Raphael.chord('div9', 'A dim');
+    Raphael.chord('div9', 'G sus4');
+    Raphael.chord('div9', 'F sus2');
+    Raphael.chord('div9', 'E min(maj7)');
+    Raphael.chord('div9', 'D min13');
+    Raphael.chord('div9', 'C min11');
+    Raphael.chord('div10', 'D aug9');
+    Raphael.chord('div10', 'C add9');
+    Raphael.chord('div10', 'A# 9sus4');
+    Raphael.chord('div10', 'G# 7b9');
+    Raphael.chord('div10', 'F# 7b5');
+    Raphael.chord('div10', 'D# 7sus4');
+    Raphael.chord('div10', 'C# 6/9');
   };
 </script>
 </head>
 <body>
-  <div>
+  <a href="http://github.com/justindarc/raphael.chord.js"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"/></a>
+  <div id="container">
+    <h1>raphael.chord.js</h1>
+    <h2>by <a href="https://github.com/justindarc">justindarc</a></h2>
+    <p>Raphaël is a small JavaScript library that simplifies work with vector graphics on the web. The raphael.chord.js plugin provides a simple interface for drawing guitar chords in a familiar notation to all guitarists. This plugin also includes a database of all of the common chords and a large number of uncommon chords with several variations of each.</p>
+    <div class="bullet download">
+      <a href="http://github.com/justindarc/raphael.chord.js/zipball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png">
+      </a>
+      <a href="http://github.com/justindarc/raphael.chord.js/tarball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png">
+      </a>
+      <h2>Download</h2>
+      <p>raphael.chord.js can be downloaded from a .zip or .tar archive here:</p>
+      <p class="subtext">or</p>
+      <p>Download the source or fork it from the GitHub project page <a href="http://github.com/justindarc/raphael.chord.js">here</a>.</p>
+    </div>
+    <div class="bullet">
+      <h2>Getting started</h2>
+      <p>The only pre-requisite for using raphael.chord.js is the Raphaël library itself which can be found <a href="http://raphaeljs.com/" target="_blank">here</a>.</p>
+      <pre>
+&lt;script type="text/javascript" src="raphael.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="raphael.chord.js"&gt;&lt;/script&gt;
+      </pre>
+      <p class="subtext">These &lt;script/&gt; tags should be included within the &lt;head/&gt; section of the page.</p>
+    </div>
+    <div class="bullet">
+      <h2>Manually specifying individual notes with manual labels</h2>
+      <p>Any chord can be specified by providing an array of six numbers indicating the fret values for the six strings (E, A, D, G, B, E). A "-1" value indicates a muted string and a "0" value indicates an open string. In addition, a string should be specified to indicate the name of the chord that appears on the label.</p>
+      <pre>
+Raphael.chord('div1', [-1,  3,  2,  0,  1,  0], 'C maj');
+Raphael.chord('div1', [-1, -1,  0,  2,  3,  2], 'D maj');
+Raphael.chord('div1', [ 0,  2,  2,  1,  0,  0], 'E maj');
+Raphael.chord('div1', [ 1,  3,  3,  2,  1,  1], 'F maj');
+Raphael.chord('div1', [ 3,  2,  0,  0,  0,  3], 'G maj');
+Raphael.chord('div1', [-1,  0,  2,  2,  2,  0], 'A maj');
+Raphael.chord('div1', [-1,  2,  4,  4,  4,  2], 'B maj');
+      </pre>
+      <p class="subtext">To ensure the Raphaël library and the raphael.chord.js plugin have loaded and the DOM is ready, these calls should be encapsulated in a function bound to the window.onload event.</p>
+      <div id="div1"></div>
+    </div>
+    <div class="bullet">
+      <h2>Manually finding chords with manual labels</h2>
+      <p>The six fret values can be looked up in the database using the Raphael.chord.find() method. This method takes the name of the chord and the type as its arguments and returns an array of six numbers. This approach still requires that a string is provided for the chord's label.</p>
+      <pre>
+Raphael.chord('div2', Raphael.chord.find('C#', 'maj'), 'C# maj');
+Raphael.chord('div2', Raphael.chord.find('D#', 'maj'), 'D# maj');
+Raphael.chord('div2', Raphael.chord.find('F#', 'maj'), 'F# maj');
+Raphael.chord('div2', Raphael.chord.find('Ab', 'maj'), 'Ab maj'); // Ab == G#
+Raphael.chord('div2', Raphael.chord.find('G#', 'maj'), 'G# maj'); // G# == Ab
+Raphael.chord('div2', Raphael.chord.find('Bb', 'maj'), 'Bb maj'); // Bb == A#
+Raphael.chord('div2', Raphael.chord.find('A#', 'maj'), 'A# maj'); // A# == Bb
+      </pre>
+      <p class="subtext">Notice that in the case of sharp or flat chords, the chord can be looked up either way and will still yield the same result.</p>
+      <div id="div2"></div>
+    </div>
+    <div class="bullet">
+      <h2>Manually finding chords by variation with manual labels</h2>
+      <p>In most cases, any given chord has several variants. The Raphael.chord.find() method takes an optional third argument that is a number indicating the variant. The default value for this argument is "1" and the maximum value depends on the number of possible variants.</p>
+      <pre>
+Raphael.chord('div3', Raphael.chord.find('C#', 'maj', 1), 'C# maj'); // 1st variant
+Raphael.chord('div3', Raphael.chord.find('C#', 'maj', 2), 'C# maj'); // 2nd variant
+Raphael.chord('div3', Raphael.chord.find('C#', 'maj', 3), 'C# maj'); // 3rd variant
+Raphael.chord('div3', Raphael.chord.find('C#', 'maj', 4), 'C# maj'); // 4th variant
+Raphael.chord('div3', Raphael.chord.find('C#', 'maj', 5), 'C# maj'); // 5th variant
+      </pre>
+      <p class="subtext">If the number specified for the variant exceeds the total number of variants, the highest-numbered variant is returned.</p>
+      <div id="div3"></div>
+    </div>
+    <div class="bullet">
+      <h2>Automatically finding chords with automatic labels</h2>
+      <p>Unless the desired chord is not in the database, this is the preferred way of interfacing with the plugin. Instead of manually looking up the chord data and providing a label, you simply provide the name and type of the chord as a single string.</p>
+      <pre>
+Raphael.chord('div4', 'C min');
+Raphael.chord('div4', 'D min');
+Raphael.chord('div4', 'E min');
+Raphael.chord('div4', 'F min');
+Raphael.chord('div4', 'G min');
+Raphael.chord('div4', 'A min');
+Raphael.chord('div4', 'B min');
+      </pre>
+      <p class="subtext">Ensure that there is a space between the name and type. For example, 'Cmin' would not yield a result but, 'C min' would.</p>
+      <div id="div4"></div>
+      <pre>
+Raphael.chord('div5', 'C# min');
+Raphael.chord('div5', 'D# min');
+Raphael.chord('div5', 'F# min');
+Raphael.chord('div5', 'Ab min'); // Ab == G#
+Raphael.chord('div5', 'G# min'); // G# == Ab
+Raphael.chord('div5', 'Bb min'); // Bb == A#
+Raphael.chord('div5', 'A# min'); // A# == Bb
+      </pre>
+      <div id="div5"></div>
+    </div>
+    <div class="bullet">
+      <h2>Automatically finding chords by variation with automatic labels</h2>
+      <p>To access the variants using the preferred method, simply pass the numeric variant value in as the third argument.</p>
+      <pre>
+Raphael.chord('div6', 'A# min', 1);
+Raphael.chord('div6', 'A# min', 2);
+Raphael.chord('div6', 'A# min', 3);
+Raphael.chord('div6', 'A# min', 4);
+Raphael.chord('div6', 'A# min', 5);
+Raphael.chord('div6', 'A# min', 6);
+Raphael.chord('div6', 'A# min', 7);
+      </pre>
+      <p class="subtext">The same rules apply for accessing the variants this way as they do when accessing them by manual look-up.</p>
+      <div id="div6"></div>
+    </div>
+    <div class="bullet">
+      <h2>Examples of the other possible chord types</h2>
+      <p>Here is a comprehensive list of all the other possible types that are available in the database. Any chords absent from the database can still be drawn by manually providing the fret values using the first method.</p>
+      <pre>
+Raphael.chord('div7', 'C 5');
+Raphael.chord('div7', 'D 6');
+Raphael.chord('div7', 'E 7');
+Raphael.chord('div7', 'F maj7');
+Raphael.chord('div7', 'G 9');
+Raphael.chord('div7', 'A maj9');
+Raphael.chord('div7', 'B 11');
+      </pre>
+      <div id="div7"></div>
+      <pre>
+Raphael.chord('div8', 'C# 13');
+Raphael.chord('div8', 'D# maj13');
+Raphael.chord('div8', 'F# min6');
+Raphael.chord('div8', 'G# min7');
+Raphael.chord('div8', 'A# min9');
+      </pre>
+      <div id="div8"></div>
+      <pre>
+Raphael.chord('div9', 'C min11');
+Raphael.chord('div9', 'D min13');
+Raphael.chord('div9', 'E min(maj7)');
+Raphael.chord('div9', 'F sus2');
+Raphael.chord('div9', 'G sus4');
+Raphael.chord('div9', 'A dim');
+Raphael.chord('div9', 'B aug');
+      </pre>
+      <div id="div9"></div>
+      <pre>
+Raphael.chord('div10', 'C# 6/9');
+Raphael.chord('div10', 'D# 7sus4');
+Raphael.chord('div10', 'F# 7b5');
+Raphael.chord('div10', 'G# 7b9');
+Raphael.chord('div10', 'A# 9sus4');
+Raphael.chord('div10', 'C add9');
+Raphael.chord('div10', 'D aug9');
+      </pre>
+      <div id="div10"></div>
+    </div>
+    <div class="footer">
+      <p>raphael.chord.js is available under the MIT license.</p>
+      <p>
+        <span>Created by Justin D'Arcangelo - </span>
+        <a href="https://github.com/justindarc" target="_blank">GitHub</a>
+        <span> - </span>
+        <a href="http://twitter.com/justindarc" target="_blank">Twitter</a>
+      </p>
+    </div>
   </div>
 </body>
 </html>
