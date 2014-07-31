@@ -76,7 +76,7 @@
     margin: 0 auto;
     width: 780px;
   }
-  #div1, #div2, #div3, #div4, #div5, #div6, #div7, #div8, #div9, #div10 {
+  .bullet > div {
     background-color: #fff;
     padding: 20px 20px 5px;
     -webkit-box-shadow: 0px 2px 10px 0px #000;
@@ -172,6 +172,13 @@
     Raphael.chord('div10', 'F# 7b5');
     Raphael.chord('div10', 'D# 7sus4');
     Raphael.chord('div10', 'C# 6/9');
+
+    // Examples of changing the size of the chord image.
+    Raphael.chord('div11', 'C maj').element.setSize(800, 800);
+    Raphael.chord('div11', 'C maj').element.setSize(275, 275);
+    Raphael.chord('div11', 'C maj').element.setSize(200, 200);
+    Raphael.chord('div11', 'C maj').element.setSize(150, 150);
+    Raphael.chord('div11', 'C maj').element.setSize(75, 75);
   };
 </script>
 </head>
@@ -326,6 +333,18 @@ Raphael.chord('div10', 'C add9');
 Raphael.chord('div10', 'D aug9');
       </pre>
       <div id="div10"></div>
+    </div>
+    <div class="bullet">
+      <h2>Examples of different size chords</h2>
+      <p>Here is a demonstration of some chords rendered at various sizes.</p>
+      <pre>
+Raphael.chord('div11', 'C maj').element.setSize(800, 800);
+Raphael.chord('div11', 'C maj').element.setSize(275, 275);
+Raphael.chord('div11', 'C maj').element.setSize(200, 200);
+Raphael.chord('div11', 'C maj').element.setSize(150, 150);
+Raphael.chord('div11', 'C maj').element.setSize(75, 75);
+      </pre>
+      <div id="div11"></div>
     </div>
     <div class="footer">
       <p>raphael.chord.js is available under the MIT license.</p>
