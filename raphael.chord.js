@@ -2634,6 +2634,8 @@
       this.element = Raphael(elementOrPosition, 100, 100);
     }
     
+    this.element.setViewBox(0, 0, 100, 100);
+
     this.fret = 0;
     this.frets = [];
     this.lines = {};
@@ -2679,8 +2681,8 @@
       if (this.fret > 0) {
         this.element.text(84, 24, this.fret + 'fr');
       } else {
-        this.lines.top = this.element.path('M19.5 18L70.5 18').attr({
-          'stroke-width': 4
+        this.lines.top = this.element.path('M20 18L70 18L70 20L20 20L20 18').attr({
+          'fill': '#000'
         });
       }
       
@@ -2713,7 +2715,7 @@
     for (var i = 0; i < 6; i++) {
       var position = 20 + (10 * i);
       
-      this.lines.horizontal.push(this.element.path('M19.5 ' + position + 'L70.5 ' + position));
+      this.lines.horizontal.push(this.element.path('M20 ' + position + 'L70 ' + position));
       this.lines.vertical.push(this.element.path('M' + position + ' 20L' + position + ' 70'));
     }
   };
