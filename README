@@ -8,3 +8,5 @@ Usage:
   // [data] is an array with 6 fret values (-1 = Muted, 0 = Open, >=1 = Fret)
 
   chord.remove(); // Removes chord
+
+https://justindarc.github.io/raphael.chord.js/
